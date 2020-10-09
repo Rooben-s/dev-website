@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* Custom Properties */
+:root {
+    --fff-primary: 'Source Sans Pro', 'sans-serif';
+    --ff-secondary: 'Source Code Pro', monospace;
+
+    --fw-reg: 400;
+    --fw-bold: 900;
+
+    --color-light: #fff;
+    --color-dark: #303030;
+    --color-accent: #16e0bd;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, .30),
+                0.125em 0.125em 0.25em rgba(0, 0, 0, .20);
+}
+
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+
+/* General styles */
+
+
+body {
+    background: var(--color-light);
+    color: var(--color-dark);
+    margin: 0;
+    font-family: var(--fff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+
+section {
+    padding: 5em 2em;
+
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* Typography */
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+
+h1 {font-size: var(--fs-h1);}
+h2 {font-size: var(--fs-h2);}
+h3 {font-size: var(--fs-h3);}
+
+
+.section_title {
+    margin-bottom: .25em;
+
+}
+
+.section_title--intro {
+    font-weight: var(--fw-reg);
+
+}
+
+.section_title--intro strong {
+    display: block;
+}                               /* Put JANE on a seperate line */
+
+
+
+
+.section_subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+
+}
+
+
+.section_subtitle--intro,
+.section_subtitle--about {
+    background-color: var(--color-accent);
+    padding: .25em 1em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+}
+
+
+
+/* Intro Section */
+
+
+nav {
+    display: none;
+}
+
+.intro {
+    position: relative;
+}
+
+.intro_img {
+    box-shadow: var(--box-shadow);
+}
+
+.section_subtitle--intro {
+    display: inline-block;  /* setting the size of "front-end dev" to exactly itself */
+}
+
+
+@media (min-width:600px) {
+    .intro {
+        display: grid;width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+            grid-template-columns: min-content max-content;
+    }
+
+
+    .intro_img {
+        grid-area: img;
+        min-width: 250px;
+        position: relative;
+        z-index: 2;
+    }
+
+.section_subtitle--intro {
+    align-self: start;
+    grid-column: -1 / 1;
+    grid-row: 2;
+    text-align: right;
+    position: relative;
+    left: -1.5em;
+    width: calc(100% + 1.5em);
+}
+
+}
